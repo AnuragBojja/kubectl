@@ -12,3 +12,7 @@ spec:
     image: nginx
     ports:
     - containerPort: 80
+
+  - name: alma
+    image: almalinux:10
+    command: ['sleep','10000']
