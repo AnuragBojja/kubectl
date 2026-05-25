@@ -6,6 +6,6 @@ spec:
   selector: 
     purpose: labels-test
   ports:
-  - protocol: "tcp"
+  - protocol: TCP
     port: 80
     targetPort: 80
