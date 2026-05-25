@@ -2,6 +2,10 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
+  Namespace: roboshop-dev
+  labels:
+    name: roboshop-dev
+    env: dev
 spec:
   containers:
   - name: nginx
