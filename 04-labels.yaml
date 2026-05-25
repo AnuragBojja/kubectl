@@ -1,0 +1,15 @@
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: labels-test
+  labels:
+    name: labels
+    purpose: labels-test
+    env: dev
+    project: roboshop-dev
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
