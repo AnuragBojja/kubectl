@@ -8,5 +8,5 @@ metadata:
 spec:
   containers:
   - name: alma
-    image: almalinux:10
+    image: almalinux:9
     command: ['sleep','10000']
