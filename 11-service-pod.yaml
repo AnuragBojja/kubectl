@@ -43,7 +43,7 @@ metadata:
     project: roboshop-dev
 spec:
   containers:
-  - name: nginx-2
-    image: nginx
+  - name: alma
+    image: almalinux:9
     ports:
     - containerPort: 80
