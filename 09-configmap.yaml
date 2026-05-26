@@ -16,10 +16,11 @@ metadata:
     purpose: testing
     name: roboshop-dev
 spec:
-  name: nginx
-  image: nginx
-  ports:
-    containerPort: 80
-  envFrom:
-  - configMapRef:
-      name: configmap
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+      containerPort: 80
+    envFrom:
+    - configMapRef:
+        name: configmap
