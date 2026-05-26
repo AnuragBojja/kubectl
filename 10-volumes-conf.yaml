@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: html-config
+data:
+  new.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My First Web Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <p>Welcome to my very first website.</p>
+    </body>
+    </html>
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-testing
+  labels:
+    purpose: testing
+    name: roboshop-dev
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: html-volumes
+      mountPath: /usr/share/nginx/html/new.html
+      subPath: new.html
+
+  volumes:
+  - name: html-volumes
+    configMap: 
+      name: html-config
