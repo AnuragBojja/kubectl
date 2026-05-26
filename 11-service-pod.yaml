@@ -32,20 +32,20 @@ spec:
     image: nginx
     ports:
     - containerPort: 80
-  - name: alma
-    image: almalinux:9
-    command: ['sleep','10000']
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: service-pod-2
-  labels:
-    name: pod-services
-    env: dev
-    project: roboshop-dev
-spec:
-  containers:
-  - name: alma
-    image: almalinux:9
-    command: ['sleep','10000']
+  # - name: alma
+  #   image: almalinux:9
+  #   command: ['sleep','10000']
+# ---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: service-pod-2
+#   labels:
+#     name: pod-services
+#     env: dev
+#     project: roboshop-dev
+# spec:
+#   containers:
+#   - name: alma
+#     image: almalinux:9
+#     command: ['sleep','10000']
