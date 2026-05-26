@@ -6,3 +6,20 @@ data:
   name: anurag
   env: dev
   purpose: testing
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-testing
+  labels:
+    purpose: testing
+    name: roboshop-dev
+spec:
+  name: nginx
+  image: nginx
+  ports:
+    containerPort: 80
+  envFrom:
+  - configMapRef:
+      name: configmap
