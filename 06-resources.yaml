@@ -1,10 +1,10 @@
 apiVersion: v1 
 kind: Pod
 metadata:
-  name: labels-test
+  name: resources-test
   labels:
-    name: labels
-    purpose: labels-test
+    name: roboshop 
+    purpose: resources-test
     env: dev
     project: roboshop-dev
 spec:
