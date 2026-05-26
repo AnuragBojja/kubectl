@@ -20,13 +20,13 @@ data:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: configmap-testing
+  name: config-volume
   labels:
     purpose: testing
     name: roboshop-dev
 spec:
   containers:
-  - name: nginx
+  - name: nginx-conf
     image: nginx
     ports:
     - containerPort: 80
