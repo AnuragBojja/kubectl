@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: roboshop-serive
 spec:
+  type: NodePort
   selector: 
     purpose: labels-test
   ports:
