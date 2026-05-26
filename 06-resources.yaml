@@ -12,9 +12,12 @@ spec:
   - name: nginx
     image: nginx
     env:
-      name: anurag
-      purpose: testing
-      env: dev
+    - name: Name
+      value: Anurag
+    - name: purpose
+      value: testing
+    - name: env
+      value: dev
     resources:
       requests:
         memory: "64Mi"
