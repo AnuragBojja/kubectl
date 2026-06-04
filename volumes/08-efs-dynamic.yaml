@@ -30,7 +30,7 @@ spec:
   volumes:
     - name: dynamic-efs-vol
       persistentVolumeClaim:
-        - claimName: roboshop-efs-claim
+        claimName: roboshop-efs-claim
 
 ---
 apiVersion: v1
