@@ -3,7 +3,7 @@ kind: DaemonSet
 metadata:
   name: hostport-demo
   namespace: kube-system
-  metadata:
+  labels:
     purpose: testing
 
 spec:
