@@ -11,7 +11,7 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-04f35485b17534d8f
+    volumeHandle: vol-04f35485b17534d8f ## we have to update every time we create volume
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -40,7 +40,7 @@ spec:
         - containerPort: 80
       volumeMounts:
         - name: ebs-demo-vol
-          mountPath: /usr/share/nginx
+          mountPath: /usr/share/nginx/html
   volumes:
     - name: ebs-demo-vol
       persistentVolumeClaim:
