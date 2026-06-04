@@ -21,6 +21,7 @@ spec:
     volumeMounts:
       - name: emptydir-vol
         mountPath: /mnt/log
+        readOnly: true
   volumes:
     - name:  emptydir-vol
       emptyDir: 
