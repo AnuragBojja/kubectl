@@ -11,6 +11,7 @@ spec:
     volumeMounts:
       - name:  emptydir-vol
         mountPath: /var/log/
+    containerPort: 80
   - name: alma
     image:  almalinux:9
     command: 
