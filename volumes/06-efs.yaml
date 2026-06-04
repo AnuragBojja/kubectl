@@ -55,6 +55,7 @@ kind: Service
 metadata:
   name: efs-service
 spec:
+  type: LoadBalancer
   selector:
     purpose: testing
   ports:
