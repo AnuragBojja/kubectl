@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: roboshop-ebs-dynamic
+  resources:
+    requests:
+      storage: 4Gi
+
+---
+
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: ebs-dynamic
+  labels:
+    purpose: testing
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+      volumeMounts:
+      - name: ebs-dynamic-claim
+        mountPath: /usr/share/nginx/html
+
+  volumes:
+  - name: ebs-dynamic-claim
+    persistentVolumeClaim:
+      claimName: ebs-claim
