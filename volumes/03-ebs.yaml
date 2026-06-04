@@ -56,6 +56,6 @@ spec:
   selector:
     purpose: testing
   ports:
-    protocol: tcp
+  - protocol: tcp
     port: 80
     targetPort: 80
