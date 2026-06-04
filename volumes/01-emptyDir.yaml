@@ -10,7 +10,7 @@ spec:
     image: nginx
     volumeMounts:
       - name:  emptydir-vol
-        mountPath: /var/log/
+        mountPath: /var/log/nginx
     ports:
     - containerPort: 80
   - name: alma
