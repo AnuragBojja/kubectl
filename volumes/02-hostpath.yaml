@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: DeamonSet 
+metadata:
+  name: hostport-demo
+  metadata:
+    purpose: testing
+
+spec:
+  selector:
+    matchLabels:
+      purpose: hostport-demo
+  template:
+    metadata:
+      labels:
+        purpose: hostport-demo
+  spec:
+    containers:
+      - name: fluentd-elasticsearch
+        image: quay.io/fluentd_elasticsearch/fluentd:v5.0.1
+        volumeMounts:
+          name: hostpath-vol
+          mountPath: /mnt/log
+
+    volumes:
+      name: hostpath-vol
+      hostPath:
+        path: /var/log
+
+
