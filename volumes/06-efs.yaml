@@ -48,3 +48,16 @@ spec:
   - name: roboshop-efs-vol
     persistentVolumeClaim:
       claimName: roboshop-efs-pvclaim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: efs-service
+spec:
+  selector:
+    purpose: testing
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
