@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: DaemonSet 
 metadata:
   name: hostport-demo
-  namespace: kube-system
+  namespace: kube-system   # admnistrator Work
   labels:
     purpose: testing
 
@@ -21,6 +21,7 @@ spec:
           volumeMounts:
           - name: hostpath-vol
             mountPath: /mnt/log
+            readOnly: true
 
       volumes:
       - name: hostpath-vol
