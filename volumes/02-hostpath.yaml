@@ -14,17 +14,17 @@ spec:
     metadata:
       labels:
         purpose: hostport-demo
-  spec:
-    containers:
-      - name: fluentd-elasticsearch
-        image: quay.io/fluentd_elasticsearch/fluentd:v5.0.1
-        volumeMounts:
-          name: hostpath-vol
-          mountPath: /mnt/log
+    spec:
+      containers:
+        - name: fluentd-elasticsearch
+          image: quay.io/fluentd_elasticsearch/fluentd:v5.0.1
+          volumeMounts:
+            name: hostpath-vol
+            mountPath: /mnt/log
 
-    volumes:
-      name: hostpath-vol
-      hostPath:
-        path: /var/log
+      volumes:
+        name: hostpath-vol
+        hostPath:
+          path: /var/log
 
 
