@@ -17,7 +17,7 @@ spec:
     - 'sleep'
     - '10000'
     volumeMounts:
-      - name: emptyDir-vol
+      - name: emptydir-vol
         mountPath: /mnt/log
   volumes:
     - name:  emptydir-vol
