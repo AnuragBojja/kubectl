@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: roboshop-efs-pv
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: efs:fs-04aca6d814d15bc13
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: roboshop-efs-pvclaim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeName: roboshop-efs-pv
+  resources:
+    requests:
+      storage: 5Gi
+
+---
+
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: roboshop-efs-pod
+  labels:
+    purpose: testing
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: roboshop-efs-vol
+          mountPath: /usr/share/nginx/html
+
+  volumes:
+  - name: roboshop-efs-vol
+    persistentVolumeClaim:
+      claimName: roboshop-efs-pvclaim
