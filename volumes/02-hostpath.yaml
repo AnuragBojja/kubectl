@@ -23,7 +23,7 @@ spec:
             mountPath: /mnt/log
 
       volumes:
-        name: hostpath-vol
+      - name: hostpath-vol
         hostPath:
           path: /var/log
 
