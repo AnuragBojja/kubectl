@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testing-deployment
+  labels:
+    project: testing
+    env: dev
+    service: ingress
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      project: testing
+      env: dev
+      service: ingress
+  template:
+    metadata:
+      labels:
+        project: testing
+        env: dev
+        service: ingress
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: testing-service
+  labels:
+    project: testing
+    env: dev
+    service: ingress
+spec:
+  type: ClusterIP
+  selector:
+    project: testing
+    env: dev
+    service: ingress
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
